@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DTU Resources</title>
+    <script src="/libs/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="/libs/bootstrap.min.css">
+    <script src="/libs/bootstrap.bundle.min.js"></script>
+    <script src="/scripts/upload.js"></script>
+    <link rel="stylesheet" href="/libs/jquery-confirm.min.css">
+    <script src="/libs/jquery-confirm.min.js"></script>
+    <style>
+        label {
+            color: white;
+        }
+        .navbar-brand{
+            margin-right: 0;
+            font-size: 1.06rem;
+        }
+    </style>
+</head>
+<body style="background-color: dimgrey">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">DTU Resources Admin Portal</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/manage">Manage<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/admin/upload">Upload<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Modify
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/admin/modify/add">Add classifiers</a>
+                        <a class="dropdown-item" href="/admin/modify/existing">Modify existing</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Account
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/admin/me">Account Settings</a>
+                        <a class="dropdown-item" href="/admin/logout">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="m-1 row">
+        <form class="mx-auto col-sm-6 col-md-4" id="form" action="/items" method="POST"></form>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 m-auto">
+                <form id="uploadForm">
+                    <div class="form-group">
+                        <label for="filename">Filename</label>
+                        <input type="text" class="form-control" id="filename" name="filename" placeholder="(optional)">
+                    </div>
+                    <div class="custom-file mb-3">
+                        <input type="file" name="file" id="file" class="custom-file-input" required>
+                        <label for="file" class="custom-file-label">Choose file</label>
+                    </div>
+                    <input type="submit" value="Submit" id="submit" class="btn btn-primary btn-block">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DTU Resources</title>
+    <script src="/libs/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="/libs/bootstrap.min.css">
+    <script src="/libs/bootstrap.bundle.min.js"></script>
+    <script src="/scripts/res-finder-script.js"></script>
+    <link rel="stylesheet" href="/libs/jquery-confirm.min.css">
+    <script src="/libs/jquery-confirm.min.js"></script>
+</head>
+<body style="background-color: dimgrey">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">DTU Resources</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin">Admin<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="res" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Resources
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/findres">Resource finder</a>
+                        <a class="dropdown-item" href="/search">All resources</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="m-1 row" style="color: white">
+        <form class="mx-auto col-sm-6 col-md-4" id="form"></form>
+    </div>
+    <div class="m-1 row">
+        <button class="mx-auto col-6 col-md-4 btn btn-primary" id="submit">Submit</button>
+    </div>
+</body>
+</html>

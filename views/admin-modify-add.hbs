@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DTU Resources</title>
+    <script src="/libs/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="/libs/bootstrap.min.css">
+    <script src="/libs/bootstrap.bundle.min.js"></script>
+    <script src="/scripts/admin-modify-add.js"></script>
+    <link rel="stylesheet" href="/libs/jquery-confirm.min.css">
+    <script src="/libs/jquery-confirm.min.js"></script>
+    <style>
+        .navbar-brand{
+            margin-right: 0;
+            font-size: 1.06rem;
+        }
+    </style>
+</head>
+<body style="background-color: dimgrey">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">DTU Resources Admin Portal</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/manage">Manage<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/upload">Upload</a>
+                </li>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Modify
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/admin/modify/add">Add classifiers</a>
+                        <a class="dropdown-item" href="/admin/modify/existing">Modify existing</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Account
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/admin/me">Account Settings</a>
+                        <a class="dropdown-item" href="/admin/logout">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="m-1 row" style="color: white">
+        <form class="mx-auto col-sm-6 col-md-4" id="form" action="/items" method="POST"></form>
+    </div>
+    <hr>
+    <div class="container">
+        <form class="mx-auto col-10 col-sm-6 col-md-5 col-lg-4 border border-primary rounded"
+    id="addLabelForm" style="background-color: white;color:black">
+            <div class="form-group container">
+                <div class="form-group row">
+                    <label for="course">Label</label>
+                    <input class="form-control" type="text" id="label" name="label" required>
+                </div>
+                <div class="form-group row">
+                    <label for="course">Name</label>
+                    <input class="form-control" type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group row">
+                    <label for="isTerminal">Is terminal?</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="isTerminal" value="true">
+                        <label class="form-check-label" for="isTerminal">True</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="isTerminal" value="false" checked>
+                        <label class="form-check-label" for="isTerminal">False</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <input class="btn btn-primary btn-block" id="submit" type="submit" value="Submit">
+                </div>
+                <div class="form-group row">
+                    <button class="btn btn-danger btn-block" id="deleteBtn" type="submit" name="delete">Delete</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

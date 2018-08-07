@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DTU Resources</title>
+    <script src="/libs/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="/libs/bootstrap.min.css">
+    <script src="/libs/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <script src="/scripts/admin-manage.js"></script>
+    <link rel="stylesheet" href="/libs/jquery-confirm.min.css">
+    <script src="/libs/jquery-confirm.min.js"></script>
+    <style>
+        body {
+            background-color: dimgrey;
+        }
+        .navbar-brand{
+            margin-right: 0;
+            font-size: 1.06rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">DTU Resources Admin Portal</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/admin/manage">Manage<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/upload">Upload</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Modify
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/admin/modify/add">Add classifiers</a>
+                        <a class="dropdown-item" href="/admin/modify/existing">Modify existing</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Account
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/admin/me">Account Settings</a>
+                        <a class="dropdown-item" href="/admin/logout">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="list-group mx-auto col-sm-6 mt-2">
+        {{#each users}}
+        <li class="list-group-item" data-id="{{this.id}}">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <span>Email: {{this.email}}</span>
+                    <small class="text-muted">Name: {{this.name}}</small>
+                </div>
+                <div>
+                    <button class="btn btn-danger">
+                        <i class="fas fa-times-circle"></i>
+                    </button>
+                </div>
+            </div>
+        </li>
+        {{/each}}
+    </div>
+    <form class="mt-1 mx-auto col-10 col-sm-6 col-md-5 col-lg-4 border border-primary rounded"
+    style="color: black;background-color: white">
+        <div class="form-group container">
+            <div class="form-group row">
+                <label for="email">Email</label>
+                <input class="form-control" type="email" id="email" name="email">
+            </div>
+            <div class="form-group row">
+                <label for="name">Name</label>
+                <input class="form-control" type="text" id="name" name="name">
+            </div>
+            <div class="form-group row">
+                <input class="btn btn-primary btn-block" id="submit" type="submit" value="Submit">
+            </div>
+        </div>
+    </form>
+</body>
+</html>

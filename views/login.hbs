@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DTU Resources</title>
+    <script src="/libs/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="/libs/bootstrap.min.css">
+    <script src="/libs/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <style>
+        .navbar-brand{
+            margin-right: 0;
+            font-size: 1.06rem;
+        }
+    </style>
+</head>
+<body style="background-color: dimgrey">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">DTU Resources Admin Login</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container border border-primary rounded col-sm-6 col-md-4 p-2" style="background-color: white;">
+        <div class="login-form">
+            <form action="/admin/login" method="POST">
+                <h2 class="text-center"><i class="fas fa-user-lock"></i></h2>       
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input class="form-control" placeholder="Enter email" required name="email" type="email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input class="form-control" placeholder="Enter password" required name="password" type="password">
+                </div>
+                {{#if message}}
+                <div class="alert alert-danger" role="alert">{{message}}</div>
+                {{/if}}
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">Log in <i class="fas fa-unlock-alt"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
