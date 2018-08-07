@@ -1,5 +1,5 @@
 module.exports = {
-    MONGO_URI: 'mongodb://aneesh:5Jr-wP5-zLr-avq@ds263571.mlab.com:63571/dturesdb',
+    MONGO_URI: 'mongodb://localhost:27017/dtures',
     PASSPORT_SECRET: 'lmao XD',
     DEFAULT_PASSWORD: '123456',
     DEFAULT_ADMINS: [
