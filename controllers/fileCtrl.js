@@ -77,11 +77,11 @@ const deleteFiles = async (body) => {
     return filename
 }
 
-const seatchFiles = async (text) => {
+const searchFiles = async (text) => {
     let files = await gfs.files.find({filename: {$regex: text,$options : 'i'}}).toArray()
     let output = []
     for(file of files){
-        let temp = {id: file.id}
+        let temp = {id: file._id}
         temp.filename = file.filename
         temp.size = parseFloat(file.length/1024/1024).toFixed(2).toString()+' M'
         output.push(temp)
@@ -104,6 +104,6 @@ module.exports = {
     removeFileById,
     deleteFiles,
     renameFile,
-    seatchFiles,
+    searchFiles,
     getListOfFiles
 }

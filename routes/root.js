@@ -6,7 +6,7 @@ const itemCtrl = require('../controllers/itemCtrl')
 const fileCtrl = require('../controllers/fileCtrl')
 
 route.post('/search',async(req,res) => {
-    res.render('list-files',{files: await fileCtrl.seatchFiles(req.body.q.trim())})
+    res.render('list-files',{files: await fileCtrl.searchFiles(req.body.q.trim())})
 })
 route.get('/autocomplete/:text',async(req,res) => {
     res.send(await fileCtrl.getListOfFiles(req.params.text));
