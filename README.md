@@ -11,4 +11,4 @@
 * You can fill the form and submit it to find relevent docs.
 * You can also use the search feature to seacrh all files.
 
-[Try out the live version](https://dtures.herokuapp.com)
+[Try out the live version](https://dtures.in)
