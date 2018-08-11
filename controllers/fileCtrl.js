@@ -54,6 +54,11 @@ const downloadFile = async (id,res) => {
     let file = await gfs.files.findOne({'_id': ObjectID(id)})
     if(!file || file.length ===0)
         res.status(404).json({error: 'No file found.'})
+    res.writeHead(200, {
+        'Content-Type': file.contentType,
+        'Content-Length': file.length,
+        'Content-Disposition': `attachment; filename="${file.filename}"`
+    });
     return gfs.createReadStream(file.filename).pipe(res)
 }
 
