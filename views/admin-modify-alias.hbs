@@ -8,12 +8,13 @@
     <script src="/libs/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="/libs/bootstrap.min.css">
     <script src="/libs/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <script src="/scripts/admin-modify-alias.js"></script>
     <link rel="stylesheet" href="/libs/jquery-confirm.min.css">
     <script src="/libs/jquery-confirm.min.js"></script>
-    <script src="/scripts/admin-modify-existing.js"></script>
     <style>
         body {
-            color: white;
+            background-color: dimgrey;
         }
         .navbar-brand{
             margin-right: 0;
@@ -21,7 +22,7 @@
         }
     </style>
 </head>
-<body style="background-color: dimgrey">
+<body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
         <a class="navbar-brand" href="#">DTU Resources Admin Portal</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,11 +62,21 @@
             </ul>
         </div>
     </nav>
-    <div class="m-1 row">
-        <form class="mx-auto col-sm-6 col-md-4" id="form"></form>
-    </div>
-    <div class="m-1 row">
-        <button class="mx-auto col-6 col-md-4 btn btn-primary" id="submit">Submit</button>
+    <div class="container">
+        <div class="list-group mx-auto col-sm-6 mt-2">
+            {{#each items}}
+            <li class="list-group-item" data-id="{{this.id}}">
+                <div class="d-flex justify-content-between">
+                    <span>{{this.from.label}}:{{this.from.name}} to {{this.to.label}}:{{this.to.name}}</span>
+                    <div>
+                        <button class="btn btn-danger remove">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </li>
+            {{/each}}
+        </div>
     </div>
 </body>
 </html>

@@ -1,7 +1,4 @@
 $(() => {
-    let form = $('#form')
-    let submit = $('#submit')
-
     //dropdown animation
     $('.dropdown').on('show.bs.dropdown', function(e){
         $(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);
@@ -20,16 +17,50 @@ $(() => {
         return $(selected[n])
     }
 
-    submit.click(() => {
-        let parent = getParent()
-        if(!parent.data('isTerminal'))
-            return $.alert({
-                title: 'Error',
-                content:'You can only view files for a terminal node!',
-                backgroundDismiss: true
-            })
-        window.location.href = `/admin/files/${parent.data('id')}`
+    $('.remove').click((event) => {
+        let parents = $(event.currentTarget).parents()
+        let id = parents[2].getAttribute('data-id')
+        let aliasDescription = 'from ' + parents[1].children[0].innerText
+        $.confirm({
+            title: 'Delete Alias!',
+            content: `Are you sure you want to delete the alias ${aliasDescription}`,
+            type: 'red',
+            typeAnimated: true,
+            backgroundDismiss: true,
+            buttons: {
+                confirm: {
+                    text: 'Confirm',
+                    btnClass: 'btn-red',
+                    action: function () {
+                        $.alert({
+                            content: function () {
+                                var self = this;
+                                return $.ajax({
+                                    url: '/admin/alias',
+                                    type: 'DELETE',
+                                    data: {id}
+                                })
+                                .done(filename => {
+                                    self.setType('green')
+                                    self.setTitle('Success')
+                                    self.setContent(`Deleted alias ${aliasDescription}!`)
+                                })
+                                .fail(() => {
+                                    self.setType('red')
+                                    self.setTitle('Error')
+                                    self.setContent('Something went wrong.')
+                                })
+                            },
+                            onClose: function () {window.location.reload()}
+                        })
+                    }
+                },
+                cancel: function () {}
+            }
+        })
+        
     })
+
 
     function addToList (data) {
         if(typeof data.label == 'undefined')

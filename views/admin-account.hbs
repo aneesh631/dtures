@@ -41,6 +41,8 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="/admin/modify/add">Add classifiers</a>
+                        <a class="dropdown-item" href="/admin/modify/addAlias">Add an alias</a>
+                        <a class="dropdown-item" href="/admin/modify/changeAlias">View/delete an alias</a>
                         <a class="dropdown-item" href="/admin/modify/existing">Modify existing</a>
                     </div>
                 </li>
@@ -56,28 +58,33 @@
             </ul>
         </div>
     </nav>
-    <div class="list-group mx-auto col-6 mt-2" style="color: white;">
-        <div class="row">
-            <div class="col">Email:</div>
-            <div class="col">{{email}}</div>
+    <form class="container p-2 col-10 col-sm-6 col-md-5 col-lg-4 border border-primary rounded"style="background-color: white;color:black">
+        <div class="form-group row">
+            <div class="container">
+                <label for="email">Email</label>
+                <span class="form-control" id="email">{{email}}</span>
+            </div>
         </div>
-        <div class="row">
-            <div class="col">Name:</div>
-            <div class="col">{{name}}</div>
+        <div class="form-group row">
+            <div class="container">
+                <label for="name">Name</label>
+                <span class="form-control" id="name">{{name}}</span>
+            </div>
         </div>
-        <form>
-            <div class="form-group row">
+        <div class="form-group row">
+            <div class="container">
                 <label for="oldpass" class="col">Old password:</label>
                 <input type="password" class="col" name="oldpass" id="oldpass">
             </div>
-            <div class="form-group row">
+        </div>
+        <div class="form-group row">
+            <div class="container">
                 <label for="newpass" class="col">New password:</label>
                 <input type="password" class="col" name="newpass" id="newpass">
             </div>
-            <div>
-                <input class="mx-auto btn btn-primary" type="submit" value="Change password">
-            </div>
-        </form>
-    </div>
-</body>
+        </div>
+        <div class="text-center">
+            <input class="mx-auto btn btn-primary" type="submit" value="Change password">
+        </div>
+    </form>
 </html>

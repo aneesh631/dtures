@@ -20,6 +20,10 @@ let Item = mongoose.model('Item',{
     isTerminal: {
         type: Boolean,
         default: false
+    },
+    alias: {
+        type: String,
+        default: ""
     }
 })
 module.exports = {Item}

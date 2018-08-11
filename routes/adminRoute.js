@@ -59,6 +59,10 @@ route.use('/logout',(req,res) => {
 })
 route.get('/upload',(req,res) => res.render('admin-upload'))
 route.get('/modify/add',(req,res) => res.render('admin-modify-add'))
+route.get('/modify/addAlias',(req,res) => res.render('admin-add-alias'))
+route.get('/modify/changeAlias',async(req,res) => {
+    res.render('admin-modify-alias',{items: await itemCtrl.getAllAliases()})
+})
 route.get('/modify/existing',(req,res) => res.render('admin-modify-existing'))
 route.get('/manage',checkDefaultAdmin,async(req,res) => {
     const users = await userCtrl.getAllUsers()
@@ -111,6 +115,24 @@ route.delete('/files', async (req,res) => {
         res.send(filename)
     } catch (e) {
         res.status(404).json({error: e})
+    }
+})
+
+route.post('/alias',async (req,res) => {
+    try {
+        await itemCtrl.addAlias(req.body)
+        res.send()
+    }catch(e){
+        res.status(400).json({error: e})
+    }
+})
+
+route.delete('/alias',async (req,res) => {
+    try {
+        await itemCtrl.deleteAlias(req.body.id)
+        res.send()
+    }catch(e){
+        res.status(400).json({error: e})
     }
 })
 
