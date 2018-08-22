@@ -5,6 +5,12 @@ const path = require('path')
 const itemCtrl = require('../controllers/itemCtrl')
 const fileCtrl = require('../controllers/fileCtrl')
 
+route.get('/help/admin',async(req,res) => {
+    res.sendFile(path.join(__dirname,'../public/help/admin.pdf'));
+})
+route.get('/help/user',async(req,res) => {
+    res.sendFile(path.join(__dirname,'../public/help/normalUser.pdf'));
+})
 route.post('/search',async(req,res) => {
     res.render('list-files',{files: await fileCtrl.searchFiles(req.body.q.trim())})
 })
