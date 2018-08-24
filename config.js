@@ -6,6 +6,8 @@ module.exports = {
         {email: 'aneesh.kundu14@gmail.com',
         name: 'Aneesh Kundu'},
         {email: 'djsinghnegi@gmail.com',
-        name: 'Dhananjay Negi'}
+        name: 'Dhananjay Negi'},
+        {email: 'amolgrover2@gmail.com',
+        name: 'Amol Grover'}
     ]
 }
